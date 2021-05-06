@@ -1,0 +1,50 @@
+server:
+    port: 8081
+    servlet:
+        context-path: /ydcmepprd
+
+spring:
+    mvc:
+        favicon:
+            enabled: false
+    datasource:
+        driver-class-name: oracle.jdbc.driver.OracleDriver
+        url: jdbc:oracle:thin:@ydcmepp:1522:EPP
+        username: CUST01
+        password: CUST01
+
+    application:
+        name: ydcmepprd
+#    jpa:
+#        show-sql: false
+    jackson:
+        serialization:
+            indent_output: true
+
+remote:
+    maxTotalConnect: 0
+    maxConnectPerRoute: 200
+    connectTimeout: 2000
+    readTimeout: 3000
+
+waprequest:
+    url: http://ydcmbwprd.sgcc.com.cn:8001/sap/bw/xml/soap/xmla
+    username: dphs
+    password: Qwer432!
+
+logging:
+    #    config: classpath:logback.xml
+    level:
+        com.example.ydcmepprd: info
+    path: /data/logs
+
+sap:
+    username: dphs
+    password: Qwer432!
+
+ydcmepprd:
+    #默认当年目标值
+    target: 32000
+    #定时任务更新时,判断是否需要更新去年数据所需的最大日期
+    updateMaxDay: 5
+
